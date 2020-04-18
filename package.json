@@ -1,13 +1,17 @@
 {
   "name": "app-react",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/frontend/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/soymichelt/app-react.git"
+  },
   "scripts": {
     "build": "webpack --mode production",
     "start:dev": "webpack-dev-server"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["ReactJS", "JavaScript", "Webpack", "Babel", "Desarrollo Web", "SPA"],
+  "author": "Michael Traña <mtraatabladaa94@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "react": "^16.13.1",
@@ -29,5 +33,5 @@
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
   },
-  "description": ""
+  "description": "Ejemplos del uso de ReactJS"
 }
