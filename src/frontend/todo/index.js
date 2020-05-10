@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment, } from 'react';
 import Add from './add';
 import List from './list';
+import './index.scss';
 
 const Todo = () => {
 
@@ -19,12 +20,17 @@ const Todo = () => {
     };
 
     return (
-        <>
-            <Add onAdd={addTarea} onChange={onChangeTarea} tarea={tareaNueva} />
-            <List tareas={tareas} />
-        </>
+        <section className='section-main'>
+            <Add
+                onAdd={addTarea}
+                onChange={onChangeTarea}
+                tarea={tareaNueva}
+            />
+            <List
+                tareas={tareas}
+            />
+        </section>
     );
-
 };
 
 export default Todo;

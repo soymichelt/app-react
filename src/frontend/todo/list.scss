@@ -1,0 +1,19 @@
+@import './../theme/components.scss';
+
+.section-list {
+    @extend %panel;
+    max-width: 600px;
+    width: 100%;
+}
+
+.section-list h5 {
+    margin: 8px 0px;
+    text-transform: uppercase;
+}
+
+.section-list p {
+    padding: 8px 0px;
+    margin: 0px;
+    border-top: 1px solid #ede7f6;
+    cursor: pointer;
+}

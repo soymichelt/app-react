@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
+
+body {
+    background: linear-gradient(to right, rgb(106, 27, 154), rgb(142, 36, 170));
+    font-family: 'Roboto', sans-serif;
+}
+
+.section-main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
