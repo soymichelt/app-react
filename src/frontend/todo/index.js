@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import Add from './add';
 import List from './list';
 
@@ -19,10 +19,10 @@ const Todo = () => {
     };
 
     return (
-        <>
+        <Fragment>
             <Add onAdd={addTarea} onChange={onChangeTarea} tarea={tareaNueva} />
             <List tareas={tareas} />
-        </>
+        </Fragment>
     );
 
 };

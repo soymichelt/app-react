@@ -1,7 +1,9 @@
 import React from 'react';
 
 const List = (props) => {
-    const { tareas, } = props;
+
+    const {tareas} = props;
+
     return (
         <section>
             <h5>Listado de tareas</h5>

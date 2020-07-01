@@ -10,7 +10,14 @@
     "build": "webpack --mode production",
     "start:dev": "webpack-dev-server"
   },
-  "keywords": ["ReactJS", "JavaScript", "Webpack", "Babel", "Desarrollo Web", "SPA"],
+  "keywords": [
+    "ReactJS",
+    "JavaScript",
+    "Webpack",
+    "Babel",
+    "Desarrollo Web",
+    "SPA"
+  ],
   "author": "Michael Traña <mtraatabladaa94@gmail.com>",
   "license": "ISC",
   "dependencies": {
@@ -19,6 +26,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-runtime": "^7.10.4",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "babel-loader": "^8.1.0",
