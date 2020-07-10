@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import Todo from './todo';
+import HolaMundo from './hola-mundo/hola-mundo';
 import {Posts} from './posts';
+import {Suscripcion} from './suscripcion';
 
-ReactDOM.render(<Posts />, document.getElementById('app-react'));
+ReactDOM.render(<Suscripcion />, document.getElementById('app-react'));

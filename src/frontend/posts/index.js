@@ -1,4 +1,4 @@
-import React, {useState, useEffect,} from 'react';
+import React, {useState, useEffect} from 'react';
 import {PostList} from './post-list';
 
 export const Posts = () => {
@@ -17,5 +17,7 @@ export const Posts = () => {
         getPosts();
     }, []);
 
-    return(<PostList data={posts} />);
+    return (
+        <PostList data={posts} />
+    );
 };

@@ -1,6 +1,8 @@
 import React from 'react';
 
-export const PostList = ({data}) => {
+export const PostList = (props) => {
+    const {data} = props;
+
     return (
         <ul>
             {data && data.map(item => {
