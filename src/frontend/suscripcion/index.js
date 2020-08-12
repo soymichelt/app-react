@@ -1,35 +1,33 @@
 import React, { useState } from 'react';
 
 export const Suscripcion = () => {
-    const [nombre, setNombre] = useState('');
-    const handleChangeNombre = (e) => setNombre(e.target.value);
+    const [email, setEmail] = useState('');
+    const handleChangeEmail = (e) => setEmail(e.target.value);
 
     const [estaGuardado, setEstaGuardado] = useState(false);
-    const handleClickGuardar = () => setEstaGuardado(true);
+    const handleClickSuscribirse = () => setEstaGuardado(true);
 
     return (
         <section>
             {!estaGuardado ? (
                     <>
-                    <label>Suscríbete</label>
+                        <label>Suscríbete</label>
                         <input
                             placeholder='Correo electrónico'
-                            onChange={handleChangeNombre}
-                            value={nombre}
+                            onChange={handleChangeEmail}
+                            value={email}
                         />
                         <button
-                            onClick={handleClickGuardar}
-                        >
-                            Suscribirse
-                        </button>
+                            onClick={handleClickSuscribirse}
+                        >Suscribirse</button>
                     </>
                 )
                 :
                 (
-                    <h1>Graciar por suscribirse: {nombre}</h1>
+                    <h1>Gracias por suscribirse: {email}</h1>
                 )
             }
         </section>
     );
-};
 
+};

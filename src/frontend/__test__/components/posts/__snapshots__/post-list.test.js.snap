@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Instantanea PostList Component Renderizado del componente 1`] = `
+Array [
+  <h1
+    className="header-title"
+  >
+    Listado de Datos
+  </h1>,
+  <ul
+    id="list"
+  >
+    <li>
+      Michel Traña
+    </li>
+    <li>
+      Roberto Tablada
+    </li>
+  </ul>,
+  <button
+    disabled={false}
+  >
+    Anterior
+  </button>,
+  <button
+    disabled={false}
+  >
+    Siguiente
+  </button>,
+  <p>
+    Offline
+  </p>,
+]
+`;
