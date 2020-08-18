@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
 import {Suscripcion} from './suscripcion';
-import {Posts} from './posts';
+import {Characters} from './characters';
 
-ReactDOM.render(<Posts />, document.getElementById('app-react'));
+ReactDOM.render(<Characters />, document.getElementById('app-react'));
