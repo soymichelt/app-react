@@ -1,4 +1,5 @@
 import React from 'react';
+import {LOADING, ERROR,} from './index-with-context';
 
 export const List = (props) => {
     const {
@@ -8,9 +9,17 @@ export const List = (props) => {
         next,
         prev,
         connected,
+        statusData,
+        error,
     } = props;
     return(
         <>
+            {statusData === LOADING && (
+                <p>Cargando datos...</p>
+            )}
+            {statusData === ERROR && (
+                <p>{error.message}</p>
+            )}
             <ul>
                 {data && data.map(item => {
                     return (<li key={item.id}>{item.name}</li>);
