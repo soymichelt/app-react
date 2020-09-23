@@ -1,5 +1,5 @@
 import React from 'react';
-import {LOADING, ERROR,} from './index-with-context';
+import {LOADING, ERROR,} from './index';
 
 export const List = (props) => {
     const {

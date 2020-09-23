@@ -1,11 +1,52 @@
-import React, {useState, useEffect,} from 'react';
+import React, {useState, useReducer, useEffect,} from 'react';
 import {List} from './list';
 
+export const LOADING = 'loading';
+export const SUCCESS = 'success';
+export const ERROR = 'error';
+
+const reducer = (state, action) => {
+    switch(action.type) {
+        case LOADING: return {
+            ...state,
+            statusData: LOADING,
+            url: action.payload.url,
+        };
+        case SUCCESS: return {
+            ...state,
+            statusData: SUCCESS,
+            characterData: action.payload.characterData,
+            prev: action.payload.prev,
+            next: action.payload.next,
+        };
+        case ERROR: return {
+            ...state,
+            statusData: ERROR,
+            error: action.payload.error,
+        };
+    }
+};
+
+const initialState = {
+    characterData: [],
+    prev: null,
+    next: null,
+    url: 'https://rickandmortyapi.com/api/character/',
+    statusData: LOADING,
+    error: null,
+};
+
 export const Characters = () => {
-    const [characterData, setCharactersData] = useState([]);
-    const [prev, setPrev] = useState(null);
-    const [next, setNext] = useState(null);
-    const [url, setUrl] = useState('https://rickandmortyapi.com/api/character/');
+    const [state, dispatch] = useReducer(reducer, initialState);
+
+    const {
+        characterData,
+        prev,
+        next,
+        url,
+        statusData,
+        error,
+    } = state;
 
     const [connected, setConnected] = useState(!navigator ? null : navigator.onLine);
 
@@ -15,8 +56,14 @@ export const Characters = () => {
         setConnected(navigator.onLine);
     };
 
-    const handlePrevClick = () => setUrl(prev);
-    const handleNextClick = () => setUrl(next);
+    const handlePrevClick = () => dispatch({
+        type: LOADING,
+        payload: {url: prev}
+    });
+    const handleNextClick = () => dispatch({
+        type: LOADING,
+        payload: {url: next}
+    });
 
     useEffect(() => {
         if(window) {
@@ -26,11 +73,19 @@ export const Characters = () => {
         fetch(url)
         .then(res => res.json())
         .then(data => {
-            setCharactersData(data.results);
-            setPrev(data.info.prev);
-            setNext(data.info.next);
+            dispatch({
+                type: SUCCESS,
+                payload: {
+                    characterData: data.results,
+                    prev: data.info.prev,
+                    next: data.info.next,
+                }
+            });
         })
-        .catch(error => console.log(error));
+        .catch(error => dispatch({
+            type: ERROR,
+            payload: {error: error}
+        }));
 
         return () => {
             if(window) {
@@ -48,6 +103,8 @@ export const Characters = () => {
             next={next}
             prev={prev}
             connected={connected}
+            statusData={statusData}
+            error={error}
         />
     );
 };

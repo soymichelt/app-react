@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import {Suscripcion} from './suscripcion';
-import {Characters} from './characters/index-with-context';
+import {Suscripcion} from './suscripcion-ref';
+import {ComplexCalculation} from './complex-calculation';
+import {Characters} from './characters';
 
-ReactDOM.render(<Characters />, document.getElementById('app-react'));
+ReactDOM.render(<ComplexCalculation />, document.getElementById('app-react'));
