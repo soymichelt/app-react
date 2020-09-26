@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import {Suscripcion} from './suscripcion';
-import {Characters} from './characters/index-with-context';
+import {Suscription} from './suscription-ref';
+import {InfinityScroll} from './infinity-scroll';
 
-ReactDOM.render(<Characters />, document.getElementById('app-react'));
+ReactDOM.render(<InfinityScroll />, document.getElementById('app-react'));
