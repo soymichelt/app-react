@@ -1,4 +1,4 @@
-import {useEffect, useRef, useReducer} from 'react';
+import {useEffect, useReducer} from 'react';
 
 export const LOADING = 'loading';
 export const SUCCESS = 'success';
@@ -25,17 +25,14 @@ const dataReducer = (state, action) => {
     }
 };
 
-const initialState = {
-    url: 'https://rickandmortyapi.com/api/character',
-    statusData: LOADING,
-    data: null,
-    error: null,
-};
+export const useDataProvider = (initialUrl) => {
 
-export const useDataProvider = () => {
+    const initialState = {
+        url: initialUrl,
+        statusData: LOADING
+    };
 
     const [state, dispatch] = useReducer(dataReducer, initialState);
-
     const {
         url,
         statusData,

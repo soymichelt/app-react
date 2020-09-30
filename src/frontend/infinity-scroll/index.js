@@ -1,52 +1,21 @@
-import React, {useEffect, useRef} from 'react';
-import {useScreenHook} from './useScreenHook';
-import {useDataProvider,LOADING} from './useDataProvider';
+import React, {useRef} from 'react';
 import {List} from './list';
+import {useInfinityScrollCharacters} from './useInfinityScrollCharacters';
 
-const mergeData = (data, newData) => {
-    if(newData) {
-        const elementsToAdd = newData.filter(newItem => {
-            const elementSearched = data.find(item => {
-                return item.id === newItem.id
-            });
-            return !elementSearched;
-        });
-        return [
-            ...data,
-            ...elementsToAdd,
-        ];
-    }
-    else {
-        return [
-            ...data
-        ];
-    }
-};
-
-export const InfinityScroll = () => {
+export const CharactersInfinityScroll = () => {
     const elementToObserveRef = useRef();
-    const [isShowing] = useScreenHook(elementToObserveRef, '0px');
-    const [state, loading] = useDataProvider();
+    const charactersDataRef = useRef([]);
+    const [state] = useInfinityScrollCharacters(elementToObserveRef, charactersDataRef);
     const {
         statusData,
-        data,
         error,
     } = state;
-    const charactersRef = useRef([]);
-    const {results, info} = data ? data : {};
-    charactersRef.current = mergeData(charactersRef.current,results);
-    useEffect(() => {
-        if(isShowing && statusData !== LOADING) {
-            if(info.next) loading(info.next);
-        };
-    },[isShowing]);
     return (
         <List
             status={statusData}
-            charactersData={charactersRef.current}
+            charactersData={charactersDataRef.current}
             error={error}
             elementToObserveRef={elementToObserveRef}
         />
     );
-
 };
