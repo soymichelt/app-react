@@ -49,6 +49,8 @@
   },
   "description": "Ejemplos del uso de ReactJS",
   "jest": {
-    "setupFilesAfterEnv": ["<rootDir>/src/frontend/__test__/setup-test.js"]
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/frontend/__test__/setup-test.js"
+    ]
   }
 }
