@@ -51,11 +51,6 @@ module.exports = {
             },
         ],
     },
-    devServer: {
-        inline: true,
-        port: 9000,
-        host: '0.0.0.0',
-    },
     plugins: [
         new HtmlWebpackPlugin({
             template: './public/index.html',
