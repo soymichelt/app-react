@@ -10,5 +10,4 @@ body {
 }
 .characters-list .loading {
     height: 120px;
-    justify-self: flex-end;
 }

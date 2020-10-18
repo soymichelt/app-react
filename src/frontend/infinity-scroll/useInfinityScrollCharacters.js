@@ -2,24 +2,17 @@ import {useEffect} from 'react';
 import {useScreenHook} from './useScreenHook';
 import {useDataProvider,LOADING} from './useDataProvider';
 
-const mergeData = (data, newData) => {
+const mergeData = (currentData, newData) => {
     if(newData) {
         const elementsToAdd = newData.filter(newItem => {
-            const elementSearched = data.find(item => {
-                return item.id === newItem.id
-            });
-            return !elementSearched;
+            return !currentData.some(item => item.id === newItem.id)
         });
         return [
-            ...data,
+            ...currentData,
             ...elementsToAdd,
         ];
     }
-    else {
-        return [
-            ...data
-        ];
-    }
+    return currentData;
 };
 
 export const useInfinityScrollCharacters = (

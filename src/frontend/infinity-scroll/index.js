@@ -2,7 +2,7 @@ import React, {useRef} from 'react';
 import {List} from './list';
 import {useInfinityScrollCharacters} from './useInfinityScrollCharacters';
 
-export const CharactersInfinityScroll = () => {
+export const Characters = () => {
     const elementToObserveRef = useRef();
     const charactersDataRef = useRef([]);
     const [state] = useInfinityScrollCharacters(elementToObserveRef, charactersDataRef);

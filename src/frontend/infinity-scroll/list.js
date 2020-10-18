@@ -15,12 +15,6 @@ export const List = (props) => {
     } = props;
     return (
         <section className='characters-list'>
-            {status === LOADING && (
-                <p>Cargando...</p>
-            )}
-            {status === ERROR && (
-                <p>{error.message}</p>
-            )}
             {charactersData && charactersData.map(character => {
                 return (
                     <Item
@@ -32,7 +26,12 @@ export const List = (props) => {
                 );
             })}
             <section ref={elementToObserveRef} className='loading'>
-                <p>Cargando datos...</p>
+                <p>
+                    Cargando una nueva página...
+                </p>
+                {status === ERROR && (
+                    <p>{error.message}</p>
+                )}
             </section>
         </section>
     );
